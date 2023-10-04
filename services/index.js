@@ -1,6 +1,6 @@
-const berandaService = require('./berandaService');
+const tarifService = ('./tarifService');
+const priceService = require('./priceService')
 
-// module export
 module.exports = {
-    berandaService
-}
+  priceService
+};

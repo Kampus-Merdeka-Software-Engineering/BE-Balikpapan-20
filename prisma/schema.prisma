@@ -16,3 +16,11 @@ model Book {
   title String
   author String
 }
+
+model Tarif {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  origin String
+  destination String
+  price Int
+}

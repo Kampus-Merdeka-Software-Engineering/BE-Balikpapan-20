@@ -1,9 +1,5 @@
-const berandaRoutes = require('../routes/berandaRoute')
-// const studentRoutes = require('../routes/berandaRoute')
+const priceRoutes = require('./priceRoutes');
 
-
-// module export
-module.exports = [
-    berandaRoutes,
-    // route yang lain 
-]
+module.exports = [ 
+  priceRoutes,
+ ];
