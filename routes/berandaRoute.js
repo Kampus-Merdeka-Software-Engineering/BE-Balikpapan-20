@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 
-const {berandaController} = require('../controllers');
+const { berandaController } = require("../controllers");
 
 const router = express.Router();
 
@@ -11,7 +11,7 @@ const router = express.Router();
 //     res.json({name: 'OK'});
 // })
 
-router.get('/beranda', berandaController.getBeranda);
+router.get("/beranda", berandaController.getBeranda);
 
 // creat new place
 
@@ -20,8 +20,6 @@ router.get('/beranda', berandaController.getBeranda);
 // Update place by id
 
 // Delet place by id
-
-
 
 // module export
 module.exports = router;
