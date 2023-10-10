@@ -15,7 +15,7 @@ async function getTarif(origin, destination, weight) {
         ]
       }
     });
-    const finalTarif = baseTarif?.tarif *  weight;
+    const finalTarif = baseTarif?.price *  weight;
 
     return {
       tarif: finalTarif,
