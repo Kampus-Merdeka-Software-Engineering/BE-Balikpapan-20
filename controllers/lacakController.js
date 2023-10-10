@@ -1,7 +1,6 @@
 const {
   getLacakService,
   getlacakByIdService,
-  createLacakService,
 } = require("../services/lacakService");
 
 const getLacakControllers = async (req, res) => {
@@ -20,22 +19,7 @@ const getlacakByIdController = async (req, res) => {
 };
 
 // ini bagian created lacak, method POST
-const createLacakController = async (req, res) => {
-  const createdLacak = await createLacakService(req.body);
-  if (!createdLacak) {
-    res.status(400).json({
-      message: "Lacak gagal di buat",
-    });
-  }
-
-  res.status(201).json({
-    message: "Data berhasil di buat",
-    data: createdLacak,
-  });
-};
 
 module.exports = {
-  getLacakControllers,
-  getlacakByIdController,
-  createLacakController,
+  getLacakControllers
 };

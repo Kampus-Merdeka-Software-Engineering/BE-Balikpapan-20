@@ -24,3 +24,11 @@ model lacak {
   numberTelpon Int
   statusPengiriman String
 }
+
+model Message {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  name      String
+  email     String
+  message   String @db.Text
+}

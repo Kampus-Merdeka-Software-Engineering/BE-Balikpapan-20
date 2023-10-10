@@ -20,6 +20,9 @@ app.use("/lacak", lacakRoutes);
 // rute untuk tarif/Check
 app.use("/tarif", tarifRoutes);
 
+
+
+
 app.listen(3000, () => {
   console.log(`Expampel app listening on port 3000`);
 });

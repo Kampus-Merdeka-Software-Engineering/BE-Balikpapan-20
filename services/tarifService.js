@@ -1,38 +1,28 @@
 const { prisma } = require("../config/prisma");
 
-const getTarifService = async () => {
-  const tarif = await prisma.tarif.findMany();
-  if (tarif.length === 0) {
+async function getTarif(origin, destination, weight) {
+  try {
+    if (origin === destination) {
+      return {
+        tarif: 20000 * weight
+      };
+    }
+    const baseTarif = await prisma.tarif.findFirst({
+      where: {
+        AND: [
+        {origin: origin},
+        { destination: destination}
+        ]
+      }
+    });
+    const finalTarif = baseTarif?.tarif *  weight;
+
     return {
-      message: "Tidak ada tarif barang",
+      tarif: finalTarif,
     };
+  } catch (error) {
+    console.error(error);
   }
-  return tarif;
-};
+}
 
-const getTarifByIdService = async (id) => {
-  const tarif = await prisma.tarif.findUnique({
-    where: {
-      id: Number(id),
-    },
-  });
-  return tarif;
-};
-
-// ini bagian Create Tarif, method POST
-const createTarifService = async (body) => {
-  const { id, origin, destination, price } = body;
-  console.log(body);
-
-  const createdTarif = await prisma.tarif.create({
-    data: {
-      id: Number(id),
-      origin,
-      destination,
-      price: Number(price),
-    },
-  });
-  return createdTarif;
-};
-
-module.exports = { getTarifService, getTarifByIdService, createTarifService };
+module.exports = { getTarif };
